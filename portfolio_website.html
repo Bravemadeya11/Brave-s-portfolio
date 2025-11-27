@@ -207,6 +207,106 @@
             font-size: 1.2rem;
             line-height: 1.8;
         }
+        
+        /* Contact Links Section */
+        .contact-links {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .contact-title {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+         
+        .links-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+         .link-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.3s ease;
+            width: 100px;
+        }
+
+         .link-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .link-item:hover .icon-wrapper {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+         .linkedin .icon-wrapper {
+            background: linear-gradient(135deg, #0077b5, #00a0dc);
+        }
+
+        .email .icon-wrapper {
+            background: linear-gradient(135deg, #ea4335, #d14836);
+        }
+
+         .github .icon-wrapper {
+            background: linear-gradient(135deg, #333, #6e5494);
+        }
+
+         .link-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+         }
+
+         /* Responsive Design */
+        @media (max-width: 768px) {
+            #about {
+                padding: 40px 20px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .profile-image {
+                width: 220px;
+                height: 220px;
+            }
+
+             .links-container {
+                gap: 15px;
+            }
+
+            .link-item {
+                width: 80px;
+            }
+
+            .icon-wrapper {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
 
         /* Skills */
         .skills-grid {
@@ -389,7 +489,7 @@
     <section id="home" class="hero">
         <div class="hero-content glass">
             <h1> Brave Madeya</h1>
-            <p>Creative Developer & Designer</p>
+            <p>Creative Systems Engineer & Designer</p>
             <a href="#portfolio" class="cta-button">View My Work</a>
         </div>
         <div class="floating-element" style="top: 20%; left: 10%; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
@@ -399,10 +499,11 @@
     <!-- About Section -->
     <section id="about" class="fade-in">
         <h2 class="section-title">About Me</h2>
+            <img src="IMG_9612 2.jpg" alt="Profile" class="profile-image glass">
         <div class="about-content">
-            <img src=  "IMG_9612 2.jpg" Profile" class="profile-image glass">
-            <div class="about-text">
-                <p>I'm a passionate creative professional with expertise in web development, design, and digital experiences. With over 3 years of experience, I specialize in creating beautiful, functional solutions that engage users and drive results.</p>
+            
+
+                <p>I'm a passionate creative professional with expertise in web development, design, digital experiences and cybersecurity technologies. With over 3 years of experience, I specialize in creating beautiful, functional solutions that engage users and drive results.</p>
                 <p>My approach combines technical expertise with creative vision, ensuring every project not only looks great but performs exceptionally. I believe in the power of good design and problem solving to transform businesses and create meaningful connections.</p>
             </div>
         </div>
@@ -410,17 +511,44 @@
         <div class="skills-grid">
             <div class="skill-card glass fade-in">
                 <h3>Frontend Development</h3>
-                <p>React, Vue, JavaScript, HTML5, CSS3</p>
+                <p>React, JavaScript, HTML5, CSS3, </p>
             </div>
             <div class="skill-card glass fade-in">
                 <h3>UI/UX Design</h3>
-                <p>Figma, Adobe XD, Sketch, Prototyping</p>
-            </div>
+                <p> Adobe XD, Sketch, Prototyping, ASP.NET Framework</p>
             <div class="skill-card glass fade-in">
                 <h3>Backend Development</h3>
-                <p>Node.js, Python, PostgreSQL, MongoDB</p>
+                <p>C#, Python, PostgreSQL, DBMS</p>
+            </div>
             </div>
         </div>
+        <!-- Contact Links Section -->
+                    <div class="contact-links">
+                        <h3 class="contact-title">Let's Connect</h3>
+                        <div class="links-container">
+                            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="link-item linkedin">
+                                <div class="icon-wrapper">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </div>
+                                <span class="link-label">LinkedIn</span>
+                            </a>
+                            
+                            <a href="mailto:your.email@example.com" class="link-item email">
+                                <div class="icon-wrapper">
+                                    <i class="far fa-envelope"></i>
+                                </div>
+                                <span class="link-label">Email</span>
+                            </a>
+
+                             <a href="https://github.com/yourusername" target="_blank" class="link-item github">
+                                <div class="icon-wrapper">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <span class="link-label">GitHub</span>
+                            </a> 
+                        </div>
+                    </div>
+
     </section>
 
     <!-- Portfolio Section -->
