@@ -182,18 +182,19 @@
 
         /* About Section */
         .about-content {
+            color: #ffffff;
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 60px;
+            gap: 30px;
             align-items: center;
         }
 
         .profile-image {
-            width: 300px;
-            height: 300px;
+            width: 230px;
+            height: 230px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid rgba(255, 255, 255, 0.3);
+            border: 5px solid rgba(199, 176, 176, 0.3);
             transition: all 0.3s ease;
         }
 
@@ -203,9 +204,13 @@
         }
 
         .about-text {
-            color: white;
-            font-size: 1.2rem;
-            line-height: 1.8;
+            color: #ffffff; /* ensure pure white for high contrast */
+            font-size: 1.05rem; /* readable paragraph size */
+            line-height: 1.6; /* comfortable line spacing */
+        }
+
+        .about-text p {
+            margin-bottom: 0.75rem; /* small gap so paragraphs follow closely */
         }
         
         /* Contact Links Section */
@@ -289,8 +294,8 @@
             }
             
             .profile-image {
-                width: 220px;
-                height: 220px;
+                width: 100px;
+                height: 80px;
             }
 
              .links-container {
@@ -526,14 +531,14 @@
                     <div class="contact-links">
                         <h3 class="contact-title">Let's Connect</h3>
                         <div class="links-container">
-                            <a href="https://linkedin.com/in/yourprofile" target="_blank" class="link-item linkedin">
+                            <a href="https://www.linkedin.com/in/brave-madeya" target="_blank" class="link-item linkedin">
                                 <div class="icon-wrapper">
                                     <i class="fab fa-linkedin-in"></i>
                                 </div>
                                 <span class="link-label">LinkedIn</span>
                             </a>
                             
-                            <a href="mailto:your.email@example.com" class="link-item email">
+                            <a href="mailto:bravemadeya@gmail.com" class="link-item email">
                                 <div class="icon-wrapper">
                                     <i class="far fa-envelope"></i>
                                 </div>
