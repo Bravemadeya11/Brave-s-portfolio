@@ -374,6 +374,67 @@
             opacity: 0.9;
         }
 
+        /* Certifications & Articles */
+        .cert-articles {
+            margin-top: 60px;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            align-items: stretch;
+        }
+
+        .cert-card {
+            color: white;
+            padding: 20px;
+            border-radius: 16px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 50px rgba(0,0,0,0.35);
+        }
+
+        .cert-card h4 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .cert-card .meta {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.8);
+        }
+
+        .articles-list {
+            margin-top: 30px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .article-item {
+            padding: 14px 18px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.04);
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+
+        .article-item:hover {
+            background: rgba(255,255,255,0.06);
+            transform: translateY(-4px);
+        }
+
+
         .project-link {
             color: white;
             text-decoration: none;
@@ -580,6 +641,33 @@
                 <p>Custom web application for project management with real-time collaboration features and advanced analytics dashboard.</p>
                 <a href="#" class="project-link">View Project →</a>
             </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Articles Section -->
+    <section id="certifications" class="fade-in cert-articles">
+        <h2 class="section-title">Certifications & Articles</h2>
+
+        <div class="cert-grid">
+            <div class="cert-card glass">
+                <h4>Certified Web Developer</h4>
+                <div class="meta">Cisco Python Essentials  — 2023</div>
+                <p>Completed the Python Essentials curriculum focusing on modern web technologies and responsive design.</p>
+            </div>
+            <div class="cert-card glass">
+                <h4>Cybersecurity Fundamentals</h4>
+                <div class="meta">ISC2 — 2023</div>
+                <p>Focused on Cybersecurity Fundamentals, including Incident Response and secure coding practices. Using tools like Kali Linux, Powershell, and Wireshark.</p>
+            </div>
+            <div class="cert-card glass">
+                <h4>Oracle Generative AI Cloud Essentials</h4>
+                <div class="meta">Oracle — 2025</div>
+                <p>Introduction to cloud architecture and deployment patterns using Oracle Generative AI. Building Endpoints on Clusters to support LLMs.</p>
+            </div>
+        </div>
+
+        <div class="articles-list">
+            <a class="article-item" href="https://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=5343698" target="_blank">Review of Impacts of Smart Home Iot Devices — Article</a>   
         </div>
     </section>
 
