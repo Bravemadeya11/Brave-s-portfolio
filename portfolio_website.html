@@ -360,6 +360,33 @@
             justify-content: space-between;
         }
 
+        /* Project logo + hover animations */
+        .project-card .project-head {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .project-logo {
+            width: 56px;
+            height: 56px;
+            border-radius: 8px;
+            object-fit: cover;
+            transition: transform 0.45s cubic-bezier(.2,.9,.2,1), box-shadow 0.35s ease;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+            flex-shrink: 0;
+        }
+
+        .project-card:hover .project-logo {
+            transform: rotate(-8deg) scale(1.08) translateY(-6px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+        }
+
         .project-card:hover {
             transform: translateY(-10px);
         }
@@ -567,7 +594,7 @@
     <section id="about" class="fade-in">
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
-            <img src="IMG_9612 2.jpg" alt="Profile" class="profile-image glass">
+            <img src="/Users/Brave/Documents/Brave's portfolio/Brave-s-portfolio/IMG_9612 2.jpg"Profile" class="profile-image glass">
             <div class="about-text">
                 <p>I'm a passionate creative professional with expertise in web development, design, digital experiences and cybersecurity technologies. With over 3 years of experience, I specialize in creating beautiful, functional solutions that engage users and drive results.</p>
                 <p>My approach combines technical expertise with creative vision, ensuring every project not only looks great but performs exceptionally. I believe in the power of good design and problem solving to transform businesses and create meaningful connections.</p>
@@ -622,7 +649,10 @@
         <h2 class="section-title">My Work Experience</h2>
         <div class="portfolio-grid">
             <div class="project-card glass fade-in">
-                <h3>Security Analyst</h3>
+                <div class="project-head">
+                    <img src="/Users/Brave/Documents/Brave's portfolio/Brave-s-portfolio/download.jpeg" alt="CMU logo" class="project-logo">
+                    <h3>Security Analyst</h3>
+                </div>
                 <h4>Central Michigan University, Mount Pleasant,MI, USA	</h4>
                 <p>Monitor security information and event management using security information and event management (SIEM) tools.
                    Respond to and mitigated security incidents in a timely manner to minimize impact, following established incident response playbooks.
@@ -633,7 +663,10 @@
                 <a href="https://www.cmich.edu/offices-departments/office-information-technology" class="project-link">View Link→</a>
             </div>
             <div class="project-card glass fade-in">
-                <h3>Systems Engineer</h3>
+                <div class="project-head">  
+                    <img src="/Users/Brave/Documents/Brave's portfolio/Brave-s-portfolio/Syszar.jpeg" alt= "SYSZAR logo" class="project-logo">
+                    <h3>Systems Engineer</h3>
+                </div>
                 <h4>SYSZAR, Lilongwe, Malawi</h4>
                 <p>Designed, developed, and deployed dynamic web applications using C# ASP.NET MVC framework within Visual Studio, converting manual processes into automated operations.
                     Implemented architectural designs and project guidelines to ensure the development of standardized, scalable systems.
@@ -644,7 +677,10 @@
                 <a href="https://www.linkedin.com/company/syszar/" class="project-link">View Link →</a>
             </div>
             <div class="project-card glass fade-in">
-                <h3>ICT Officer</h3>
+                <div class="project-head">
+                    <img src="/Users/Brave/Documents/Brave's portfolio/Brave-s-portfolio/Greenbelt.jpeg" alt="Greenbelt Authority logo" class="project-logo">
+                    <h3>ICT Officer</h3>
+                </div>
                 <h4>Greenbelt Authority, Lilongwe, Malawi</h4>
                 <p>Oversaw server maintenance, configurations, and network troubleshooting to ensure optimal system performance.
                    Served as System Administrator for key ERP systems, including Aruti Payroll and Sage Accounting.
