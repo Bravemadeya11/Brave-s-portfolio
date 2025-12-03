@@ -461,6 +461,27 @@
             transform: translateY(-4px);
         }
 
+        /* Contact form feedback */
+        #form-feedback {
+            font-size: 0.95rem;
+            padding: 10px 14px;
+            border-radius: 10px;
+            display: inline-block;
+            min-height: 1.2em;
+        }
+
+        .feedback-success {
+            background: rgba(72,187,120,0.12);
+            color: #9ff3b0;
+            border: 1px solid rgba(72,187,120,0.18);
+        }
+
+        .feedback-error {
+            background: rgba(235,87,87,0.08);
+            color: #ffb3b3;
+            border: 1px solid rgba(235,87,87,0.15);
+        }
+
 
         .project-link {
             color: white;
@@ -738,6 +759,7 @@
                     <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
+                <div id="form-feedback" role="status" aria-live="polite" style="margin-top:12px"></div>
             </form>
         </div>
     </section>
@@ -776,35 +798,53 @@
             observer.observe(el);
         });
 
-        // Contact form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        // Contact form submission (self-hosted email via /send)
+        document.querySelector('.contact-form').addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const message = formData.get('message');
-            
-            // Simple validation
+
+            const form = this;
+            const submitBtn = form.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+
+            const name = form.querySelector('#name').value.trim();
+            const email = form.querySelector('#email').value.trim();
+            const message = form.querySelector('#message').value.trim();
+
+            const feedback = document.getElementById('form-feedback');
             if (!name || !email || !message) {
-                alert('Please fill in all fields');
+                feedback.textContent = 'Please fill in all fields.';
+                feedback.className = 'feedback-error';
                 return;
             }
-            
-            // Simulate form submission
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
+
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
-            
-            setTimeout(() => {
-                alert('Thank you! Your message has been sent.');
-                this.reset();
+
+            try {
+                const res = await fetch('/send', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({ name, email, message })
+                });
+
+                if (res.ok) {
+                    feedback.textContent = 'Thank you — your message was sent.';
+                    feedback.className = 'feedback-success';
+                    form.reset();
+                } else {
+                    const data = await res.json().catch(() => ({}));
+                    feedback.textContent = data.error || 'Submission failed — please try again later.';
+                    feedback.className = 'feedback-error';
+                }
+            } catch (err) {
+                console.error('Form submit error', err);
+                const feedback = document.getElementById('form-feedback');
+                feedback.textContent = 'Network error — please try again later.';
+                feedback.className = 'feedback-error';
+            } finally {
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
-            }, 1500);
+            }
         });
 
         // Add some interactive particles
