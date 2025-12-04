@@ -342,22 +342,49 @@
 
         /* Portfolio Grid */
         .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            display: flex;
+            gap: 20px;
             margin-top: 40px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 10px;
+        }
+
+        /* Each project frame (header or description) snaps */
+        .portfolio-grid .frame {
+            min-width: 100%; /* full viewport width frame */
+            max-width: 100%;
+            scroll-snap-align: start;
+            flex: 0 0 100%;
+            margin: 0;
+            border-radius: 12px;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+            padding: 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Custom scrollbar for desktop */
+        .portfolio-grid::-webkit-scrollbar {
+            height: 10px;
+        }
+        .portfolio-grid::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.03);
+            border-radius: 10px;
+        }
+        .portfolio-grid::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.12);
+            border-radius: 10px;
         }
 
         .project-card {
-            padding: 40px;
             color: white;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
 
         /* Project logo + hover animations */
@@ -391,14 +418,16 @@
             transform: translateY(-10px);
         }
 
-        .project-card h3 {
+        .project-head h3 {
             font-size: 1.8rem;
             margin-bottom: 15px;
         }
 
-        .project-card p {
+        .frame p {
             margin-bottom: 20px;
-            opacity: 0.9;
+            opacity: 0.95;
+            color: white;
+            line-height: 1.6;
         }
 
         /* Certifications & Articles */
@@ -461,26 +490,7 @@
             transform: translateY(-4px);
         }
 
-        /* Contact form feedback */
-        #form-feedback {
-            font-size: 0.95rem;
-            padding: 10px 14px;
-            border-radius: 10px;
-            display: inline-block;
-            min-height: 1.2em;
-        }
-
-        .feedback-success {
-            background: rgba(72,187,120,0.12);
-            color: #9ff3b0;
-            border: 1px solid rgba(72,187,120,0.18);
-        }
-
-        .feedback-error {
-            background: rgba(235,87,87,0.08);
-            color: #ffb3b3;
-            border: 1px solid rgba(235,87,87,0.15);
-        }
+    /* Contact form feedback - removed in revert */
 
 
         .project-link {
@@ -615,7 +625,7 @@
     <section id="about" class="fade-in">
         <h2 class="section-title">About Me</h2>
         <div class="about-content">
-            <img src="/Users/Brave/Documents/Brave's portfolio/Brave-s-portfolio/IMG_9612 2.jpg"Profile" class="profile-image glass">
+            <img src="assets/profile.jpg" alt="Profile" class="profile-image glass">
             <div class="about-text">
                 <p>I'm a passionate creative professional with expertise in web development, design, digital experiences and cybersecurity technologies. With over 3 years of experience, I specialize in creating beautiful, functional solutions that engage users and drive results.</p>
                 <p>My approach combines technical expertise with creative vision, ensuring every project not only looks great but performs exceptionally. I believe in the power of good design and problem solving to transform businesses and create meaningful connections.</p>
@@ -669,45 +679,38 @@
     <section id="portfolio" class="fade-in">
         <h2 class="section-title">My Work Experience</h2>
         <div class="portfolio-grid">
-            <div class="project-card glass fade-in">
-                <div class="project-head">
-                    <img src="/Users/Brave/Documents/Brave's portfolio/Brave-s-portfolio/download.jpeg" alt="CMU logo" class="project-logo">
-                    <h3>Security Analyst</h3>
+            <div class="frame glass fade-in">
+                <div class="project-card">
+                    <div class="project-head">
+                        <img src="assets/cmu_logo.jpeg" alt="CMU logo" class="project-logo">
+                        <h3>Security Analyst</h3>
+                    </div>
+                    <h4>Central Michigan University, Mount Pleasant, MI, USA</h4>
+                    <p>Monitor security information and event management using SIEM tools. Responded to and mitigated security incidents in a timely manner to minimize impact, following established incident response playbooks. Researched emerging cyber threats, threat actor TTPs, and relevant vulnerabilities. Automated routine security tasks using scripting languages (e.g., Python, PowerShell) to improve operational efficiency. Worked in sandbox environments (Omnissa Horizon client) to mitigate potential risks on the school's network traffic.</p>
+                    <a href="https://www.cmich.edu/offices-departments/office-information-technology" class="project-link">View Link →</a>
                 </div>
-                <h4>Central Michigan University, Mount Pleasant,MI, USA	</h4>
-                <p>Monitor security information and event management using security information and event management (SIEM) tools.
-                   Respond to and mitigated security incidents in a timely manner to minimize impact, following established incident response playbooks.
-                   Research emerging cyber threats, threat actor TTPs (Tactics, Techniques, and Procedures), and relevant vulnerabilities.
-                   Automated routine security tasks using scripting languages (e.g., Python, PowerShell) to improve operational efficiency.
-                   Work in Sandbox Environments(Omnissa Horizon client ) to mitigate potential risks and threats on the schools network traffic.
-</p>
-                <a href="https://www.cmich.edu/offices-departments/office-information-technology" class="project-link">View Link→</a>
             </div>
-            <div class="project-card glass fade-in">
-                <div class="project-head">  
-                    <img src="/Users/Brave/Documents/Brave's portfolio/Brave-s-portfolio/Syszar.jpeg" alt= "SYSZAR logo" class="project-logo">
-                    <h3>Systems Engineer</h3>
+            <div class="frame glass fade-in">
+                <div class="project-card">
+                    <div class="project-head">
+                        <img src="assets/syszar_logo.jpeg" alt="SYSZAR logo" class="project-logo">
+                        <h3>Systems Engineer</h3>
+                    </div>
+                    <h4>SYSZAR, Lilongwe, Malawi</h4>
+                    <p>Designed, developed, and deployed dynamic web applications using C# ASP.NET MVC framework within Visual Studio, converting manual processes into automated operations. Implemented architectural designs and project guidelines to ensure the development of standardized, scalable systems. Performed comprehensive QA testing and developed and managed database systems using MySQL and DB Forge. Imported, exported, and cleaned data for analysis within Excel and DBMS; utilized VBA in Excel to create data processing algorithms. Conducted client training sessions on new systems, enhancing user adoption and presentation skills.</p>
+                    <a href="https://www.linkedin.com/company/syszar/" class="project-link">View Link →</a>
                 </div>
-                <h4>SYSZAR, Lilongwe, Malawi</h4>
-                <p>Designed, developed, and deployed dynamic web applications using C# ASP.NET MVC framework within Visual Studio, converting manual processes into automated operations.
-                    Implemented architectural designs and project guidelines to ensure the development of standardized, scalable systems.
-                    Performed comprehensive quality assurance (QA) testing to ensure applications are user-friendly and deployment-ready.
-                    Developed and managed database systems using MySQL and DB Forge, including creating tables, views, and executing complex queries.Imported, exported, and cleaned data for analysis within Excel and DBMS; utilize VBA in Excel to create data processing algorithms.
-                    Conducted client training sessions on new systems, enhancing user adoption and presentation skills
-</p>
-                <a href="https://www.linkedin.com/company/syszar/" class="project-link">View Link →</a>
             </div>
-            <div class="project-card glass fade-in">
-                <div class="project-head">
-                    <img src="/Users/Brave/Documents/Brave's portfolio/Brave-s-portfolio/Greenbelt.jpeg" alt="Greenbelt Authority logo" class="project-logo">
-                    <h3>ICT Officer</h3>
+            <div class="frame glass fade-in">
+                <div class="project-card">
+                    <div class="project-head">
+                        <img src="assets/greenbelt_logo.jpeg" alt="Greenbelt Authority logo" class="project-logo">
+                        <h3>ICT Officer</h3>
+                    </div>
+                    <h4>Greenbelt Authority, Lilongwe, Malawi</h4>
+                    <p>Oversaw server maintenance, configurations, and network troubleshooting to ensure optimal system performance. Served as System Administrator for key ERP systems, including Aruti Payroll and Sage Accounting. Performed data analysis using Microsoft Excel (VBA) and Access to generate insights and support business decisions.</p>
+                    <a href="https://www.gba.gov.mw/" class="project-link">View Link →</a>
                 </div>
-                <h4>Greenbelt Authority, Lilongwe, Malawi</h4>
-                <p>Oversaw server maintenance, configurations, and network troubleshooting to ensure optimal system performance.
-                   Served as System Administrator for key ERP systems, including Aruti Payroll and Sage Accounting.
-                   Performed data analysis using Microsoft Excel (VBA) and Access to generate insights and support business decisions.
-</p>
-                <a href="https://www.gba.gov.mw/" class="project-link">View Link →</a>
             </div>
         </div>
     </section>
@@ -759,7 +762,6 @@
                     <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
                 </div>
                 <button type="submit" class="submit-btn">Send Message</button>
-                <div id="form-feedback" role="status" aria-live="polite" style="margin-top:12px"></div>
             </form>
         </div>
     </section>
@@ -798,53 +800,35 @@
             observer.observe(el);
         });
 
-        // Contact form submission (self-hosted email via /send)
-        document.querySelector('.contact-form').addEventListener('submit', async function(e) {
+        // Contact form submission (simulated)
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            const form = this;
-            const submitBtn = form.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
 
-            const name = form.querySelector('#name').value.trim();
-            const email = form.querySelector('#email').value.trim();
-            const message = form.querySelector('#message').value.trim();
-
-            const feedback = document.getElementById('form-feedback');
+            // Simple validation
             if (!name || !email || !message) {
-                feedback.textContent = 'Please fill in all fields.';
-                feedback.className = 'feedback-error';
+                alert('Please fill in all fields');
                 return;
             }
+
+            // Simulate form submission
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
 
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
 
-            try {
-                const res = await fetch('/send', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-                    body: JSON.stringify({ name, email, message })
-                });
-
-                if (res.ok) {
-                    feedback.textContent = 'Thank you — your message was sent.';
-                    feedback.className = 'feedback-success';
-                    form.reset();
-                } else {
-                    const data = await res.json().catch(() => ({}));
-                    feedback.textContent = data.error || 'Submission failed — please try again later.';
-                    feedback.className = 'feedback-error';
-                }
-            } catch (err) {
-                console.error('Form submit error', err);
-                const feedback = document.getElementById('form-feedback');
-                feedback.textContent = 'Network error — please try again later.';
-                feedback.className = 'feedback-error';
-            } finally {
+            setTimeout(() => {
+                alert('Thank you! Your message has been sent.');
+                this.reset();
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
-            }
+            }, 1500);
         });
 
         // Add some interactive particles
