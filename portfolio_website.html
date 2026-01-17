@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -22,10 +24,18 @@
         }
 
         body {
-            font-family: 'Cambria', sans-serif;
+            /* Primary readable UI font */
+            font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text);
             overflow-x: hidden;
+
+            /* Smoother font rendering */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+            font-feature-settings: "liga" 1, "kern" 1;
+            font-kerning: normal;
         }
 
         /* Animated background */
@@ -74,11 +84,13 @@
         }
 
         nav a {
+            font-family: 'Poppins', 'Inter', sans-serif;
             color: white;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s ease;
             position: relative;
+            letter-spacing: 0.3px;
         }
 
         nav a:hover {
@@ -118,13 +130,17 @@
         }
 
         .hero h1 {
+            font-family: 'Poppins', 'Inter', Cambria, serif;
             font-size: 4rem;
             margin-bottom: 20px;
-            font-weight: 700;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.02;
             background: linear-gradient(45deg, #fff, #f0f0f0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 0 1px 0 rgba(255,255,255,0.02);
         }
 
         .hero p {
@@ -173,11 +189,13 @@
         }
 
         .section-title {
+            font-family: 'Poppins', 'Inter', sans-serif;
             text-align: center;
             font-size: 3rem;
             margin-bottom: 60px;
             color: white;
             font-weight: 700;
+            letter-spacing: 0.2px;
         }
 
         /* About Section */
@@ -259,6 +277,13 @@
             font-size: 1.8rem;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
+        }
+
+        /* Font Awesome icon styling */
+        .icon-wrapper i {
+            color: white;
+            font-size: 1.6rem;
+            line-height: 1;
         }
 
         .link-item:hover .icon-wrapper {
@@ -616,7 +641,7 @@
     <section id="home" class="hero">
         <div class="hero-content glass">
             <h1> Brave Madeya</h1>
-            <p>Creative Systems Engineer & Designer</p>
+            <p>Creative Systems Engineer, Analyst & Designer</p>
             <a href="#portfolio" class="cta-button">View My Work</a>
         </div>
         <div class="floating-element" style="top: 20%; left: 10%; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
@@ -629,22 +654,23 @@
         <div class="about-content">
             <img src="assets/profile.jpg" alt="Profile" class="profile-image glass">
             <div class="about-text">
-                <p>I'm a passionate creative professional with expertise in web development, design, digital experiences and cybersecurity technologies. With over 3 years of experience, I specialize in creating beautiful, functional solutions that engage users and drive results.</p>
-                <p>My approach combines technical expertise with creative vision, ensuring every project not only looks great but performs exceptionally. I believe in the power of good design and problem solving to transform businesses and create meaningful connections.</p>
+                <p>I'm a passionate creative professional with expertise in web development, design, digital experiences and cybersecurity technologies. With over 3 years of experience, and currently a Grad Student at Central Michigan University, MI. I specialize in creating beautiful, functional solutions that engage users and drive results.</p>
+                <p>My approach combines technical expertise with creative vision, ensuring every project not only looks great but performs exceptionally. I believe in the power of good design and problem solving to transform businesses processes and create meaningful connections.</p>
+                <p>When I'm not coding or designing, you can find me exploring new places, learning new things, watching the NBA and fun fact my next object is to learn how to play golf.</p>
             </div>
         </div>
 
         <div class="skills-grid">
             <div class="skill-card glass fade-in">
                 <h3>Frontend Development</h3>
-                <p>React, JavaScript, HTML5, CSS3, </p>
+                <p>React, JavaScript, HTML5, CSS(Tailwind & Bootstrap), Blazor(C#)</p>
             </div>
             <div class="skill-card glass fade-in">
                 <h3>UI/UX Design</h3>
-                <p> Adobe XD, Sketch, Prototyping, ASP.NET Framework</p>
+                <p> React, ERD, Prototyping, ASP.NET Framework</p>
             <div class="skill-card glass fade-in">
                 <h3>Backend Development</h3>
-                <p>C#, Python, PostgreSQL, DBMS</p>
+                <p>C#, Python, PostgreSQL, DBMS, PowerShell</p>
             </div>
             </div>
         </div>
