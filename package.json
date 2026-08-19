@@ -4,7 +4,8 @@
   "description": "Small Express server to forward contact form messages via SMTP",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "rm -rf dist && mkdir -p dist && cp portfolio_website.html dist/index.html && cp -r assets dist/assets"
   },
   "dependencies": {
     "cors": "^2.8.5",
